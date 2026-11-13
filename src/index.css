@@ -1,0 +1,285 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", "Noto Sans Devanagari", "Noto Sans Kannada", Georgia, serif;
+  --font-sans: "DM Sans", "Noto Sans Devanagari", "Noto Sans Kannada", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-sr-canvas: var(--sr-canvas);
+  --color-sr-canvas-alt: var(--sr-canvas-alt);
+  --color-sr-surface: var(--sr-surface);
+  --color-sr-surface-alt: var(--sr-surface-alt);
+  --color-sr-input: var(--sr-input);
+  --color-sr-text: var(--sr-text);
+  --color-sr-muted: var(--sr-muted);
+  --color-sr-border: var(--sr-border);
+  --color-sr-border-strong: var(--sr-border-strong);
+  --color-sr-accent: var(--sr-accent);
+  --color-sr-accent-hover: var(--sr-accent-hover);
+  --color-sr-accent-text: var(--sr-accent-text);
+  --color-sr-accent-ink: var(--sr-accent-ink);
+  --color-sr-accent-soft: var(--sr-accent-soft);
+  --color-sr-accent-border: var(--sr-accent-border);
+  --color-sr-danger: var(--sr-danger);
+  --color-sr-danger-bg: var(--sr-danger-bg);
+  --color-sr-danger-border: var(--sr-danger-border);
+  --color-sr-warn: var(--sr-warn);
+  --color-sr-warn-bg: var(--sr-warn-bg);
+  --color-sr-warn-border: var(--sr-warn-border);
+  --color-sr-ok: var(--sr-ok);
+  --color-sr-ok-bg: var(--sr-ok-bg);
+  --color-sr-header: var(--sr-header);
+  --color-sr-footer: var(--sr-footer);
+  --color-sr-footer-text: var(--sr-footer-text);
+}
+
+/* Theme 1: Light (Off-white canvas, neutral surfaces, forest-green accents) */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --sr-canvas: #FFFFFF;
+  --sr-canvas-alt: #F6F8F3;
+  --sr-surface: #FFFFFF;
+  --sr-surface-alt: #F3F6EF;
+  --sr-input: #FFFFFF;
+  --sr-text: #1F241F;
+  --sr-muted: #555D53;
+  --sr-border: #E0E6DA;
+  --sr-border-strong: #B6C7AD;
+  --sr-accent: #285C3A;
+  --sr-accent-hover: #1E472C;
+  --sr-accent-text: #FFFFFF;
+  --sr-accent-ink: #215132;
+  --sr-accent-soft: #EAF2E6;
+  --sr-accent-border: #9CC092;
+  --sr-danger: #991B1B;
+  --sr-danger-bg: #FEF2F2;
+  --sr-danger-border: #FCA5A5;
+  --sr-warn: #92400E;
+  --sr-warn-bg: #FFFBEB;
+  --sr-warn-border: #FCD34D;
+  --sr-ok: #215132;
+  --sr-ok-bg: #EAF2E6;
+  --sr-header: rgba(255, 255, 255, 0.94);
+  --sr-footer: #0F1E14;
+  --sr-footer-text: #CBD7C8;
+  --sr-chart-text: #1F241F;
+  --sr-chart-grid: #E0E6DA;
+  --sr-glow-gradient: none;
+
+  /* Redesigned Auth Card Tokens (Dark Purple/Charcoal + Vibrant Orange CTA) */
+  --sr-auth-bg: linear-gradient(155deg, #241A3B 0%, #171226 55%, #110D1B 100%);
+  --sr-auth-surface: rgba(34, 26, 54, 0.72);
+  --sr-auth-input-bg: rgba(15, 11, 25, 0.78);
+  --sr-auth-border: rgba(196, 181, 253, 0.28);
+  --sr-auth-text: #F7F5FC;
+  --sr-auth-muted: #C6BCDD;
+  --sr-auth-cta: linear-gradient(135deg, #F97316 0%, #D94E08 100%);
+  --sr-auth-cta-hover: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  --sr-auth-ring: rgba(249, 115, 22, 0.35);
+}
+
+/* Theme 2: Dark (Deep charcoal/midnight, dark purple/plum surfaces, vibrant orange/amber buttons, soft lavender borders) */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --sr-canvas: #100D18;
+  --sr-canvas-alt: #151121;
+  --sr-surface: #1D172B;
+  --sr-surface-alt: #261E39;
+  --sr-input: #140F20;
+  --sr-text: #F6F4FB;
+  --sr-muted: #C4BBD9;
+  --sr-border: #3D325B;
+  --sr-border-strong: #6F5CA0;
+  --sr-accent: #D14908;
+  --sr-accent-hover: #B83D05;
+  --sr-accent-text: #FFFFFF;
+  --sr-accent-ink: #FDBA74;
+  --sr-accent-soft: rgba(249, 115, 22, 0.16);
+  --sr-accent-border: rgba(251, 146, 60, 0.44);
+  --sr-danger: #FCA5A5;
+  --sr-danger-bg: rgba(185, 28, 28, 0.22);
+  --sr-danger-border: rgba(248, 113, 113, 0.42);
+  --sr-warn: #FCD34D;
+  --sr-warn-bg: rgba(217, 119, 6, 0.18);
+  --sr-warn-border: rgba(251, 191, 36, 0.42);
+  --sr-ok: #6EE7B7;
+  --sr-ok-bg: rgba(16, 185, 129, 0.16);
+  --sr-header: rgba(16, 13, 24, 0.92);
+  --sr-footer: #0A0810;
+  --sr-footer-text: #C4BBD9;
+  --sr-chart-text: #F6F4FB;
+  --sr-chart-grid: #3D325B;
+  --sr-glow-gradient: radial-gradient(ellipse at 50% 0%, rgba(109, 40, 217, 0.16) 0%, transparent 65%);
+
+  --sr-auth-bg: linear-gradient(155deg, #251B3D 0%, #181228 55%, #110D1C 100%);
+  --sr-auth-surface: rgba(38, 29, 60, 0.78);
+  --sr-auth-input-bg: rgba(14, 10, 24, 0.82);
+  --sr-auth-border: rgba(196, 181, 253, 0.3);
+  --sr-auth-text: #F7F5FC;
+  --sr-auth-muted: #C6BCDD;
+  --sr-auth-cta: linear-gradient(135deg, #F97316 0%, #D94E08 100%);
+  --sr-auth-cta-hover: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  --sr-auth-ring: rgba(249, 115, 22, 0.38);
+}
+
+/* Theme 3: AgriGlow (Deep forest green + emerald + amber/golden-orange accents + glass surfaces) */
+[data-theme="agriglow"] {
+  color-scheme: dark;
+  --sr-canvas: #06150E;
+  --sr-canvas-alt: #091E15;
+  --sr-surface: rgba(13, 40, 27, 0.78);
+  --sr-surface-alt: rgba(19, 54, 37, 0.86);
+  --sr-input: rgba(6, 22, 15, 0.88);
+  --sr-text: #EDF8F2;
+  --sr-muted: #A9CCB8;
+  --sr-border: rgba(52, 211, 153, 0.24);
+  --sr-border-strong: rgba(245, 158, 11, 0.54);
+  --sr-accent: #F59E0B;
+  --sr-accent-hover: #D97706;
+  --sr-accent-text: #06150E;
+  --sr-accent-ink: #FBBF24;
+  --sr-accent-soft: rgba(16, 185, 129, 0.16);
+  --sr-accent-border: rgba(52, 211, 153, 0.36);
+  --sr-danger: #FCA5A5;
+  --sr-danger-bg: rgba(185, 28, 28, 0.22);
+  --sr-danger-border: rgba(248, 113, 113, 0.42);
+  --sr-warn: #FDE68A;
+  --sr-warn-bg: rgba(245, 158, 11, 0.18);
+  --sr-warn-border: rgba(251, 191, 36, 0.46);
+  --sr-ok: #6EE7B7;
+  --sr-ok-bg: rgba(16, 185, 129, 0.18);
+  --sr-header: rgba(6, 21, 14, 0.85);
+  --sr-footer: #040F0A;
+  --sr-footer-text: #A9CCB8;
+  --sr-chart-text: #EDF8F2;
+  --sr-chart-grid: rgba(52, 211, 153, 0.22);
+  --sr-glow-gradient: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.18) 0%, rgba(245, 158, 11, 0.05) 45%, transparent 72%);
+
+  --sr-auth-bg: linear-gradient(155deg, #0E2A1E 0%, #161A2C 58%, #091711 100%);
+  --sr-auth-surface: rgba(16, 48, 34, 0.72);
+  --sr-auth-input-bg: rgba(7, 23, 16, 0.85);
+  --sr-auth-border: rgba(52, 211, 153, 0.34);
+  --sr-auth-text: #EDF8F2;
+  --sr-auth-muted: #B0D3BF;
+  --sr-auth-cta: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+  --sr-auth-cta-hover: linear-gradient(135deg, #D97706 0%, #C2410C 100%);
+  --sr-auth-ring: rgba(245, 158, 11, 0.38);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--sr-text);
+    background-color: var(--sr-canvas);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--sr-text);
+    background-color: var(--sr-canvas);
+    background-image: var(--sr-glow-gradient);
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-display);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* AgriGlow glass-surface enhancement without altering geometry */
+[data-theme="agriglow"] .sr-surface-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px -18px rgba(16, 185, 129, 0.22);
+}
+
+/* Auth UI Styling (Dark Purple/Charcoal Card + Vibrant Orange CTA + Glow Inputs) */
+.sr-auth-card {
+  background: var(--sr-auth-bg);
+  border: 1px solid var(--sr-auth-border);
+  color: var(--sr-auth-text);
+  box-shadow: 0 24px 54px -18px rgba(8, 5, 16, 0.68), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sr-auth-input {
+  background: var(--sr-auth-input-bg);
+  border: 1px solid var(--sr-auth-border);
+  color: var(--sr-auth-text);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.sr-auth-input::placeholder {
+  color: rgba(198, 188, 221, 0.52);
+}
+
+.sr-auth-input:focus {
+  outline: none;
+  border-color: #F97316;
+  box-shadow: 0 0 0 3px var(--sr-auth-ring);
+}
+
+.sr-auth-cta {
+  background: var(--sr-auth-cta);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -8px rgba(234, 88, 12, 0.55);
+  transition: transform 140ms ease, filter 160ms ease, box-shadow 160ms ease;
+}
+
+.sr-auth-cta:hover:not(:disabled) {
+  background: var(--sr-auth-cta-hover);
+  box-shadow: 0 14px 28px -8px rgba(234, 88, 12, 0.65);
+  transform: translateY(-1px);
+}
+
+.sr-auth-cta:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Leaflet map container & popups theme adaptation */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--sr-canvas-alt);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--sr-surface);
+  color: var(--sr-text);
+  border: 1px solid var(--sr-border);
+}
+
+[data-theme="dark"] .leaflet-tile-pane,
+[data-theme="agriglow"] .leaflet-tile-pane {
+  filter: brightness(0.86) contrast(1.06) saturate(0.9);
+}
+
+.card-3d {
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1), border-color 240ms ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -20px rgba(0, 0, 0, 0.35);
+  border-color: var(--sr-border-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d,
+  .card-3d:hover,
+  .sr-auth-cta {
+    transition: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AgriGuard AI",
+  "description": "Smart agriculture plant disease detection, leaf severity segmentation, progression monitoring, environmental risk estimation, and regional outbreak surveillance.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}

@@ -1,0 +1,1075 @@
+# AGRIGUARD AI
+## Complete Project Upgrade, Feature Integration, Authentication, Database, UI Redesign & Navigation Master Prompt
+
+You are a senior full-stack software engineer, AI/ML engineer, cybersecurity specialist, database architect and UI/UX designer.
+
+Your task is to upgrade my existing **AgriGuard AI** project into a fully functional, professional, AI-powered agricultural disease detection and monitoring platform.
+
+This is an existing project. I will provide its source code and project files.
+
+**IMPORTANT: Do not rebuild the project from scratch. First inspect the entire existing codebase, understand its architecture, identify existing features, APIs, database, AI models and frontend components, and then carefully implement the required changes.**
+
+Do not unnecessarily replace working code or remove existing functionality.
+
+I am a first-year engineering student and a beginner. Therefore, the final project must be organised, understandable, properly documented and easy to run locally.
+
+The goal is to produce a genuinely working hackathon project, not just an attractive frontend demonstration.
+
+---
+
+# PART 1: PROJECT-WIDE REQUIREMENTS
+
+1. Preserve the existing AgriGuard AI identity, branding and green agricultural theme.
+2. Maintain a clean, modern, professional and farmer-friendly interface.
+3. Make the website responsive on desktop, tablets and mobile devices.
+4. Use actual backend functionality, database operations and AI processing.
+5. Do not use fake data, hardcoded results, placeholder buttons or simulated functionality presented as real.
+6. Do not create unnecessary pages, duplicate features, excessive cards or complicated navigation.
+7. Do not remove existing working functionality unless specifically instructed below.
+8. Reuse existing components, APIs, libraries and database structures wherever possible.
+9. Do not introduce unnecessary dependencies.
+10. Every button, form, navigation item and feature must have a meaningful working action.
+11. Handle loading states, errors, empty states and unsuccessful AI predictions properly.
+12. Clearly communicate when a feature is unavailable, a prediction is uncertain or an external service fails.
+13. Never claim that an AI model supports every plant or disease unless this has been validated.
+
+Before making changes, inspect the project and create an implementation plan based on its actual architecture.
+
+---
+
+# PART 2: WEBSITE NAVIGATION AND COMPLETE LAYOUT REDESIGN
+
+## 2.1 Simplify the Main Navigation
+
+Reduce the main navigation to exactly these five primary sections:
+
+1. Home
+2. Scan Plant
+3. Plant Monitoring
+4. Outbreak Map
+5. Expert Portal
+
+Keep Login/Register accessible through a separate account button.
+
+Keep Expert Portal connected to a separate expert authentication system.
+
+Remove these unnecessary sections and their navigation links:
+
+- Disease Library
+- Technical Information
+- Supported Crops & Conditions
+
+Remove unnecessary homepage cards, duplicate links and references associated with these sections.
+
+Do not create replacement disease catalogues.
+
+Disease information, symptoms, causes, treatment recommendations and technical explanations should appear directly inside the relevant diagnosis report.
+
+## 2.2 Create One Continuous Scrolling Website
+
+This is a major requirement.
+
+I do not want a website where clicking Home, Scan Plant, Plant Monitoring or Outbreak Map replaces the entire page with an isolated section.
+
+I want the main AgriGuard AI website to work as one complete, vertically scrollable experience.
+
+Arrange the sections in this order:
+
+1. Home
+2. Scan Plant
+3. Plant Monitoring
+4. Outbreak Map
+5. Expert Portal introduction and entry section
+
+All these sections must exist within the same continuous main website.
+
+Users should be able to discover the entire platform simply by scrolling down.
+
+Requirements:
+
+- Implement continuous vertical scrolling.
+- Keep the top navigation accessible using a sticky navigation bar.
+- Clicking a navigation option should smoothly scroll to its corresponding section.
+- Use appropriate section IDs and anchor navigation.
+- Do not replace the main content when navigation options are selected.
+- Do not create separate isolated pages for these five main sections.
+- Clearly distinguish each section visually.
+- Add subtle transitions and smooth scrolling.
+- Ensure the page does not become unnecessarily long or cluttered.
+
+Login/Register and the actual Expert Portal authentication interface may open as separate secure screens or routes. This does not change the continuous-scroll behaviour of the main website.
+
+## 2.3 Homepage Redesign
+
+Keep the existing hero heading:
+
+**"Check Your Plant Leaves & Field Health in Seconds."**
+
+The homepage should be clean and visually attractive.
+
+Remove these buttons from the homepage:
+
+- Upload Plant Images
+- Use Camera
+- Start Multi-Photo Field Scan
+
+Also remove all other direct image-upload or camera-capture sections from the homepage, including:
+
+- Upload Plant Photographs
+- Capture Live Field
+- Any duplicate multi-photo upload interface.
+
+There must be no direct image-upload or camera-capture controls on the homepage.
+
+Make the main hero heading or primary hero call-to-action clickable.
+
+When clicked, it should take the user to the dedicated Scan Plant section within the continuous website.
+
+The homepage should introduce the platform and its capabilities without displaying the actual image-upload interface.
+
+---
+
+# PART 3: SCAN PLANT SYSTEM
+
+Create one dedicated and fully functional Scan Plant section.
+
+All image-upload and camera functionality must exist only inside this section.
+
+## 3.1 Two Image Upload Methods
+
+Present two clear options.
+
+### Option A: Multiple Images
+
+Provide one upload area where users can:
+
+- Select multiple images in a single file-selection operation.
+- Drag and drop multiple images.
+- Preview selected images.
+- Remove unwanted images before analysis.
+- Upload multiple images together.
+- Submit the images for analysis.
+
+Allow all image formats supported by the application and validate file types, sizes and content securely.
+
+### Option B: Individual Plant Views
+
+Allow users to upload images separately under three categories:
+
+1. Front View
+2. Back View
+3. Close-up of Diseased Area
+
+Users must be able to upload these images in any order.
+
+Each category must have its own upload and preview area.
+
+Do not force users to upload all three images if they only have one or two available. Allow submission with partial uploads, but communicate when additional views would improve diagnosis.
+
+## 3.2 Camera Support
+
+Provide one camera option inside the Scan Plant section.
+
+Users should be able to:
+
+- Open their device camera.
+- Capture a plant image.
+- Preview the captured image.
+- Retake or remove it.
+- Add captured images to the selected upload workflow.
+
+Handle camera permissions and unsupported devices gracefully.
+
+## 3.3 Automatic Analysis
+
+After the user submits the images:
+
+- Analyse the uploaded images automatically.
+- Identify the plant or crop where supported.
+- Detect possible disease or visible plant-health problems.
+- Estimate prediction confidence.
+- Identify visible symptoms.
+- Estimate severity where supported.
+- Generate a useful diagnosis report.
+
+Do not require users to manually select a disease or choose from a large crop list.
+
+If the model cannot identify the plant or disease reliably, communicate that clearly and recommend expert verification.
+
+## 3.4 Empty State Before Analysis
+
+Before image analysis:
+
+- Plant name must be empty.
+- Disease name must be empty.
+- Confidence must be empty.
+- Symptoms must be empty.
+- Causes must be empty.
+- Severity must be empty.
+- Treatment must be empty.
+
+Do not show pre-filled, fabricated or example diagnosis results as if they belong to the user.
+
+Only populate diagnosis information after actual image analysis.
+
+---
+
+# PART 4: DISEASE PROGRESSION INTELLIGENCE
+
+Create a complete Disease Progression Intelligence feature inside Plant Monitoring.
+
+This must be connected to actual uploaded images, diagnosis records, treatment records and the backend database.
+
+## 4.1 Initial Plant Images
+
+Allow the user to upload:
+
+1. Front View
+2. Back View
+3. Close-up of Diseased Area
+
+Reuse the image-upload infrastructure from the Scan Plant section instead of building a duplicate upload system.
+
+Allow multiple images and partial uploads.
+
+## 4.2 Automatic Diagnosis
+
+After image analysis, automatically populate:
+
+- Plant or crop name.
+- Detected disease or visible problem.
+- Prediction confidence.
+- Symptoms.
+- Possible causes.
+- Disease severity.
+- Recommended solution.
+- Prevention methods.
+- Verified medicine or pesticide recommendations, where available.
+
+Do not populate any of these details before analysis.
+
+## 4.3 Treatment Recommendations
+
+Provide a structured treatment plan containing:
+
+- Recommended treatment.
+- Appropriate pesticide or medicine, if scientifically supported.
+- Active ingredient where available.
+- Application frequency.
+- Recommended treatment duration.
+- Safe dosage and application instructions from verified agricultural sources.
+- Necessary safety precautions.
+- Expected treatment outcome.
+- Follow-up monitoring schedule.
+
+Use reliable agricultural sources such as ICAR, state agricultural universities, TNAU, FAO and other relevant official agricultural references.
+
+Never invent pesticide names, dosages, application frequencies or guaranteed recovery timelines.
+
+If verified treatment information is unavailable, clearly state that the user should consult an agricultural expert.
+
+Do not recommend a chemical pesticide when the diagnosis is uncertain.
+
+## 4.4 Treatment Recording
+
+Allow users to record:
+
+- Medicine or pesticide used.
+- Product or active ingredient.
+- Dosage actually applied.
+- Application date.
+- Number of days used.
+- Additional observations.
+- Treatment notes.
+
+Save these details in the database under the correct user's account and plant record.
+
+## 4.5 Follow-Up Image Comparison
+
+Allow users to upload follow-up images of the same plant over time.
+
+Compare previous and current images.
+
+Identify whether the visible disease appears to be:
+
+- Improving.
+- Spreading.
+- Remaining unchanged.
+
+Show previous and current images side by side.
+
+Display changes in affected leaf area where reliable measurement is possible.
+
+Maintain a chronological monitoring timeline.
+
+## 4.6 AI-Projected Recovery Image
+
+Generate an illustrative AI-projected image showing how the leaf may look after treatment.
+
+Important requirements:
+
+- Clearly label it as an AI-projected recovery illustration.
+- Do not present it as an actual photograph.
+- Do not guarantee that the plant will recover in the displayed manner.
+- Base the illustration on the diagnosed condition and treatment context.
+- Do not generate misleading visual results when the diagnosis is uncertain.
+
+If image-generation capability is unavailable, clearly communicate that limitation rather than displaying a fake recovery image.
+
+## 4.7 Day-by-Day Progress Tracker
+
+Display a treatment and monitoring timeline containing:
+
+- Day number.
+- Treatment status.
+- Medicine or pesticide applied.
+- Application date.
+- Observed symptoms.
+- Disease progression.
+- Follow-up image.
+- Expected outcome.
+- Actual observed outcome.
+
+Allow users to update the timeline as they apply treatment and observe changes.
+
+Distinguish between expected progress and actual observed progress.
+
+---
+
+# PART 5: PLANT DISEASE SEVERITY ESTIMATION
+
+Implement plant disease severity estimation as a mandatory feature.
+
+The system must:
+
+1. Identify the leaf region.
+2. Identify visible infected or damaged portions.
+3. Estimate the affected leaf area as a percentage where technically supported.
+4. Classify severity into:
+   - Low
+   - Medium
+   - High
+5. Visually highlight suspected infected regions on the leaf image.
+6. Display the estimated percentage and severity classification in the diagnosis report.
+
+Use suitable computer vision or segmentation techniques.
+
+Do not simply assign random severity values.
+
+Clearly communicate that visual severity estimation may be approximate, particularly when image quality is poor or the affected region is difficult to distinguish.
+
+---
+
+# PART 6: ENVIRONMENTAL DISEASE RISK PREDICTION
+
+Implement environmental disease risk prediction.
+
+Use actual environmental information, including:
+
+- Temperature.
+- Humidity.
+- Rainfall.
+
+Use a suitable weather data source such as Open-Meteo if compatible with the existing project and its usage terms.
+
+Requirements:
+
+1. Obtain weather information for the user's selected or permitted location.
+2. Analyse environmental conditions relevant to the identified crop and disease.
+3. Estimate environmental disease risk.
+4. Display risk levels such as Low, Medium and High.
+5. Explain which environmental conditions are contributing to the risk.
+6. Display the time period covered by the weather information.
+7. Integrate the result into Plant Monitoring and diagnosis reports.
+
+Do not claim that weather conditions confirm a disease.
+
+If the crop or disease is not supported by the risk model, clearly communicate that the risk estimate is unavailable.
+
+Handle unavailable location permissions and weather API failures properly.
+
+---
+
+# PART 7: GEOGRAPHICAL DISEASE OUTBREAK DETECTION
+
+Implement a working Geographical Disease Outbreak Map.
+
+The map must display actual disease reports from different geographical locations.
+
+Requirements:
+
+1. Integrate an interactive map using Leaflet and OpenStreetMap or the existing mapping solution.
+2. Store disease reports with their geographical coordinates or appropriately resolved locations.
+3. Display genuine reports on the map.
+4. Group or highlight locations where similar diseases are reported frequently.
+5. Allow users to view relevant report information.
+6. Provide suitable filters for crop, disease and date where supported.
+7. Use real database records instead of fabricated outbreak data.
+8. Keep private user information protected.
+9. Do not expose personal names, email addresses or exact private farm locations without explicit permission.
+10. Use appropriate aggregation or approximate location display where necessary to protect privacy.
+
+If there are insufficient reports to establish an outbreak, show an honest empty state.
+
+Do not generate fake outbreak clusters or misleading heatmaps.
+
+---
+
+# PART 8: MANUAL DISEASE VERIFICATION AND MODEL IMPROVEMENT
+
+Implement an expert verification workflow.
+
+Authorised agricultural experts and administrators must be able to:
+
+- View authorised disease verification cases.
+- Review submitted plant images.
+- Review AI-generated diagnosis results.
+- Confirm the prediction.
+- Reject the prediction.
+- Correct the crop or disease identification.
+- Add symptoms, treatment recommendations and expert notes.
+- Record the verification date and expert identity.
+
+Store all verification decisions and corrections in the backend database.
+
+Maintain a history of expert reviews.
+
+Organise verified data so it can be used for future model training and improvement.
+
+Important:
+
+- Do not automatically retrain a model unless an actual training pipeline has been implemented.
+- Do not claim that expert corrections immediately improve the model.
+- Keep the original AI prediction and expert-corrected result separately.
+- Preserve an audit trail of verification changes.
+
+---
+
+# PART 9: COMPLETE USER AUTHENTICATION AND REGISTRATION
+
+Implement a fully functional backend-connected user authentication system.
+
+This must not be a decorative login page or frontend-only authentication.
+
+## 9.1 General User Login
+
+Create a professional login and registration interface.
+
+Allow users to:
+
+- Create an account.
+- Register using name, email and password.
+- Log in with their credentials.
+- Log out securely.
+- Maintain their authenticated session across page refreshes.
+- Reset their password if supported by the backend and configured securely.
+
+Include:
+
+- Password visibility toggle.
+- Input validation.
+- Clear error messages.
+- Loading indicators.
+- Proper session handling.
+
+## 9.2 Separate User Accounts
+
+Every registered user must have an individual account and private dashboard.
+
+Save the following under the correct user ID:
+
+- User profile.
+- Plant records.
+- Uploaded plant images.
+- Diagnosis reports.
+- Disease severity results.
+- Treatment history.
+- Pesticide usage.
+- Progression records.
+- Follow-up images.
+- Monitoring timelines.
+- Field Passport information.
+- Other user-created records.
+
+When another user logs in, they must see only their own information.
+
+No user must be able to access, modify or delete another user's private information.
+
+## 9.3 Persistent Backend Storage
+
+Connect authentication and all user data to the actual backend database.
+
+Do not rely on browser local storage as the primary database.
+
+Use appropriate persistent storage for:
+
+- User accounts.
+- Plant records.
+- Diagnosis records.
+- Treatment records.
+- Image metadata.
+- Expert verification.
+- Monitoring history.
+
+Store uploaded image files securely and associate them with the appropriate database records.
+
+Do not assume local files or SQLite databases will persist on hosting platforms that use ephemeral filesystems.
+
+If the current hosting environment requires external persistent storage, use a suitable free solution only if it is genuinely available without activating billing or entering payment information.
+
+Explain any required account setup or limitations.
+
+## 9.4 Strict User Data Isolation
+
+This is a critical security requirement.
+
+Implement backend-enforced ownership checks.
+
+- Every protected API request must authenticate the user.
+- Every user-specific database query must enforce ownership.
+- Users must not be able to access another user's records by changing an ID in the URL or request body.
+- Uploaded images must not be publicly accessible without authorisation.
+- Updates and deletions must verify ownership.
+- Clear the active user session after logout.
+- Protect all private pages and backend endpoints.
+
+Do not rely only on frontend route restrictions.
+
+Use secure password hashing.
+
+Never store plain-text passwords.
+
+Never expose API keys, database credentials, session secrets or other sensitive credentials in frontend code.
+
+Use environment variables for secrets.
+
+Implement appropriate protections against common web security vulnerabilities, including broken access control, injection, insecure sessions and unsafe file uploads.
+
+---
+
+# PART 10: SEPARATE EXPERT PORTAL AUTHENTICATION
+
+Create a separate login interface for agricultural experts.
+
+This must be separate from general user registration.
+
+## 10.1 Expert Login
+
+Allow authorised experts to log in using their assigned credentials.
+
+Do not allow ordinary users to register themselves as experts.
+
+Expert accounts must be created or approved through an administrator-controlled process.
+
+## 10.2 Expert Roles and Permissions
+
+Implement role-based access control with suitable roles:
+
+- General User.
+- Agricultural Expert.
+- Administrator.
+
+Each role must have only the permissions it requires.
+
+General users must not access expert or administrator features.
+
+Experts must not access unrelated private user accounts.
+
+Experts should only access cases assigned to them or cases explicitly submitted for expert review, subject to authorised permissions.
+
+Administrators should be able to:
+
+- Create and manage expert accounts.
+- Approve or reject expert verification.
+- Manage expert access.
+- Review verification activity.
+- Manage authorised system functions.
+
+Do not allow users to change their role through frontend requests or API manipulation.
+
+## 10.3 Expert Verification Workflow
+
+Connect the Expert Portal to the disease verification system.
+
+Experts should be able to review submitted cases, correct predictions and save verified feedback.
+
+Protect user privacy when sharing cases for review.
+
+Record expert identity, case ID, review status, corrections and timestamps.
+
+---
+
+# PART 11: PLANT MONITORING DASHBOARD
+
+Create a useful Plant Monitoring section that displays the authenticated user's plant records.
+
+Integrate the following information:
+
+1. Saved plant records.
+2. Previous diagnosis results.
+3. Plant identification.
+4. Detected disease.
+5. Disease confidence.
+6. Severity estimation.
+7. Affected leaf area.
+8. Treatment recommendations.
+9. Medicine and pesticide application history.
+10. Disease progression.
+11. Follow-up image comparisons.
+12. Environmental disease risk.
+13. Expected and actual recovery progress.
+14. Expert verification status.
+
+Each plant record must be associated with the correct user account.
+
+Allow users to open an individual plant record and review its complete history.
+
+Do not display fabricated plant records or sample results as real user data.
+
+If a user has not scanned any plants, display a clean empty state with a link to Scan Plant.
+
+---
+
+# PART 12: FIELD PASSPORT AND REPORTS
+
+Preserve existing Field Passport functionality if already implemented.
+
+If it is not implemented, integrate it only if compatible with the existing project architecture.
+
+Allow users to view a plant's relevant information in one organised report, including:
+
+- Plant identification.
+- Diagnosis.
+- Disease severity.
+- Treatment history.
+- Progression timeline.
+- Expert verification status.
+- Relevant environmental risk information.
+
+Where supported, allow the user to generate a downloadable PDF report or a shareable QR-based report.
+
+Protect private records.
+
+Shared reports must not expose sensitive account details or unrestricted access to the user's complete dashboard.
+
+---
+
+# PART 13: BACKEND, DATABASE AND TECHNICAL ARCHITECTURE
+
+First inspect the existing architecture and reuse it wherever possible.
+
+The intended functionality requires:
+
+- React and Vite frontend, if already used.
+- A suitable backend such as the existing Express or FastAPI implementation.
+- Existing AI/ML models and image-processing code.
+- A persistent database.
+- Secure image storage.
+- Weather data integration.
+- Interactive geographical mapping.
+- Authentication and role-based access control.
+
+Do not create multiple competing backends or duplicate database systems.
+
+If both Node.js and Python backends already exist, identify their actual responsibilities and integrate them properly.
+
+For example, Python may handle AI inference and computer vision while the main backend handles authentication, database operations and application APIs.
+
+Do not introduce this split unnecessarily if the existing architecture already provides a working solution.
+
+## Database Requirements
+
+Inspect the existing schema before modifying it.
+
+Create or update suitable tables and relationships for:
+
+- Users.
+- Expert profiles.
+- Roles and permissions.
+- Plant records.
+- Uploaded images.
+- Diagnosis results.
+- Disease severity.
+- Treatment plans.
+- Pesticide application records.
+- Progression history.
+- Environmental risk records.
+- Geographical disease reports.
+- Expert verification.
+- Audit history.
+
+Use appropriate primary keys, foreign keys, indexes and constraints.
+
+Ensure user-owned records reference the correct user ID.
+
+Use database migrations or a safe schema-update process.
+
+Do not delete existing user data or tables without a valid migration plan and safe backup.
+
+---
+
+# PART 14: AI AND IMAGE ANALYSIS REQUIREMENTS
+
+Inspect the existing AI model and its actual capabilities.
+
+Reuse the existing model if it works correctly.
+
+If the existing model is incomplete, improve it without pretending it supports diseases it has not been trained or validated to recognise.
+
+Potential approaches include suitable CNN architectures such as MobileNetV3, EfficientNet or ResNet, depending on the existing implementation.
+
+Use suitable image preprocessing and validation.
+
+The AI system should:
+
+1. Receive uploaded images.
+2. Validate and preprocess them.
+3. Perform inference using the actual model.
+4. Return the predicted class and confidence.
+5. Communicate uncertainty.
+6. Generate a structured diagnosis result.
+7. Save the result to the backend.
+8. Connect it to Plant Monitoring and Disease Progression.
+
+Do not use random predictions or hardcoded confidence values.
+
+Do not label a general-purpose image recognition result as a confirmed plant disease diagnosis.
+
+If a model cannot reliably identify a disease, display an uncertain or unsupported result and recommend expert verification.
+
+---
+
+# PART 15: SECURITY AND PRIVACY REQUIREMENTS
+
+Security must be implemented in the actual backend, not merely described in the interface.
+
+Implement:
+
+- Secure password hashing.
+- Secure authentication and session handling.
+- Backend role-based access control.
+- User ownership validation.
+- Input validation and sanitisation.
+- Secure file upload validation.
+- File-size restrictions.
+- Safe file storage.
+- Protected image access.
+- Environment-based secrets.
+- Appropriate CORS configuration.
+- Secure error handling.
+- Protection against SQL injection.
+- Protection against insecure direct object references.
+- Protection against unauthorised API access.
+
+Do not expose internal stack traces, database credentials or sensitive configuration to users.
+
+Do not hardcode production passwords, tokens or secrets.
+
+Do not add unnecessary authentication steps or excessive security screens that make the application difficult to use.
+
+---
+
+# PART 16: DESIGN AND USER EXPERIENCE
+
+Maintain the existing AgriGuard AI green agricultural identity.
+
+Design principles:
+
+- Clean and modern.
+- Professional hackathon-level presentation.
+- Simple for farmers to understand.
+- Minimal unnecessary text.
+- Clear visual hierarchy.
+- Responsive layout.
+- Consistent spacing and typography.
+- Accessible buttons and forms.
+- Meaningful icons.
+- Clear loading, success, warning and error states.
+
+Keep the main navigation limited to the five sections specified earlier.
+
+Do not add Disease Library, Technical Information or Supported Crops & Conditions back into the navigation.
+
+Disease information should appear in context inside diagnosis and monitoring results.
+
+Do not make the homepage an image-upload page.
+
+Keep image upload and camera functionality exclusively inside the Scan Plant section.
+
+Avoid duplicate scan controls elsewhere.
+
+---
+
+# PART 17: FUNCTIONAL INTEGRATION REQUIREMENTS
+
+All features must work together as one connected platform.
+
+The expected workflow is:
+
+1. A user opens AgriGuard AI.
+2. The user registers or logs in.
+3. The user opens Scan Plant.
+4. The user selects multiple images or uploads individual plant views.
+5. The user can optionally capture images using the camera.
+6. The AI model analyses the submitted images.
+7. The system identifies the plant and possible disease where supported.
+8. The system estimates disease severity and highlights affected regions.
+9. The system generates a diagnosis and safe treatment information.
+10. The diagnosis is saved to the user's account.
+11. The plant appears in Plant Monitoring.
+12. The user records treatment and pesticide application details.
+13. The user uploads follow-up images.
+14. The system compares the images and displays disease progression.
+15. The system displays relevant environmental disease risk.
+16. Genuine disease reports can contribute to the Outbreak Map, subject to privacy and verification requirements.
+17. Uncertain or selected cases can be submitted to the Expert Portal.
+18. An authorised expert reviews and verifies the prediction.
+19. The verified result is stored in the database.
+20. The user can view the updated plant history and report.
+
+All these steps must use real backend functionality and persistent storage.
+
+---
+
+# PART 18: TESTING AND VALIDATION
+
+After implementation, thoroughly test the complete project.
+
+## A. Website Navigation
+
+Verify:
+
+- Exactly five primary navigation options are visible.
+- All five sections appear in the correct order.
+- Continuous scrolling works.
+- Navigation links smoothly scroll to their corresponding sections.
+- The sticky navigation works.
+- No section disappears when another navigation option is clicked.
+- Removed pages and links are no longer unnecessarily accessible.
+
+## B. Scan Plant
+
+Verify:
+
+- Multiple image selection works.
+- Drag-and-drop upload works.
+- Individual Front, Back and Close-up uploads work.
+- Images can be uploaded in any order.
+- Partial image uploads work.
+- Camera capture works where browser permissions allow.
+- Image previews work.
+- Image removal and retaking work.
+- Actual AI analysis is triggered.
+- Empty diagnosis fields remain empty before analysis.
+
+## C. Disease Progression
+
+Verify:
+
+- Initial plant records are created correctly.
+- Treatment records are saved.
+- Medicine and pesticide usage can be recorded.
+- Follow-up images can be uploaded.
+- Previous and current images can be compared.
+- Progression status is calculated using actual analysis.
+- Timelines are saved and loaded correctly.
+- Recovery illustrations are clearly labelled.
+
+## D. Severity Estimation
+
+Verify:
+
+- Affected regions are highlighted.
+- Percentage estimation is generated by actual image processing.
+- Severity levels are calculated using the implemented method.
+- Unsupported or uncertain images are handled correctly.
+
+## E. Environmental Risk
+
+Verify:
+
+- Weather information is obtained from the configured source.
+- Temperature, humidity and rainfall are displayed where available.
+- Risk assessment uses supported crop and disease information.
+- API failures are handled properly.
+
+## F. Outbreak Map
+
+Verify:
+
+- Genuine stored reports appear.
+- Location filtering works where implemented.
+- No fabricated reports or outbreak clusters appear.
+- Private user information is protected.
+
+## G. Authentication and Privacy
+
+Create and test at least:
+
+- Two general user accounts.
+- Two authorised expert accounts.
+- One administrator account, if the administrator workflow is implemented.
+
+Verify:
+
+- Registration works.
+- Login works.
+- Logout works.
+- Sessions persist appropriately after refresh.
+- Passwords are securely hashed.
+- User A cannot access User B's records.
+- User B cannot access User A's records.
+- Changing record IDs in API requests does not bypass ownership checks.
+- General users cannot access expert or administrator endpoints.
+- Experts cannot access unauthorised private records.
+- Data remains available after logging out and logging back in.
+
+## H. Integration
+
+Verify that:
+
+- Scan results appear in Plant Monitoring.
+- Treatment records are linked to the correct plant.
+- Follow-up images are linked to the correct plant.
+- Expert corrections are saved.
+- Outbreak reports use genuine stored data.
+- No existing working functionality has been broken.
+
+Do not mark a test as successful unless it has actually been performed.
+
+If a feature cannot be tested because an API key, external account or service is unavailable, clearly identify that limitation.
+
+---
+
+# PART 19: IMPORTANT FREE-TO-USE REQUIREMENTS
+
+This is a student hackathon project with no budget.
+
+Prioritise genuinely free and open-source technologies.
+
+- Do not introduce paid APIs unnecessarily.
+- Do not activate billing.
+- Do not require a credit card.
+- Do not introduce paid trials.
+- Do not replace working local AI processing with a paid AI API.
+- Prefer open-source image-processing and machine-learning tools.
+- Use free weather and mapping services where permitted by their usage terms.
+- Explain any external account or configuration requirement.
+- Do not silently introduce a service that requires payment for normal operation.
+
+If a required service has free-tier limits, explain those limits honestly.
+
+---
+
+# PART 20: IMPLEMENTATION RULES
+
+Follow these rules throughout development.
+
+1. First inspect the complete existing project.
+2. Identify the frontend, backend, database, AI model and existing APIs.
+3. Identify duplicate components and unused code.
+4. Create a safe implementation plan.
+5. Implement the features in a structured manner.
+6. Preserve existing working functionality.
+7. Reuse existing dependencies wherever possible.
+8. Do not delete important files without understanding their purpose.
+9. Do not rewrite the complete application unnecessarily.
+10. Do not create duplicate backend servers or conflicting database systems.
+11. Do not leave incomplete placeholder components.
+12. Do not create buttons that do nothing.
+13. Do not use hardcoded sample data as real results.
+14. Do not claim features work when they are only visually implemented.
+15. Run the project and test the implemented functionality.
+16. Fix compilation errors, runtime errors and integration issues.
+17. Verify that the application can be started using the provided commands.
+18. Keep the code organised and understandable for a beginner.
+
+If a requirement conflicts with the existing architecture, inspect the actual implementation and choose the safest compatible solution. Explain any unavoidable limitation instead of silently ignoring the requirement.
+
+---
+
+# PART 21: MANDATORY FINAL CHANGE REPORT
+
+After completing the implementation, provide a complete and concise technical change report.
+
+The report must contain:
+
+## 1. Files Created
+List every newly created file and explain its purpose.
+
+## 2. Files Modified
+List every modified file and exactly what was changed in each file.
+
+## 3. Files Deleted
+List every deleted file and explain why it was removed.
+
+## 4. Features Implemented
+List the features that were actually implemented.
+
+## 5. Backend Changes
+Explain the API routes, authentication changes, backend logic and integrations.
+
+## 6. Database Changes
+List all new or modified tables, columns, relationships, indexes and migrations.
+
+## 7. AI/ML Changes
+Explain the model, image-processing, severity estimation and progression-analysis changes.
+
+## 8. Security Changes
+Explain authentication, password hashing, session management, role permissions and user data isolation.
+
+## 9. Dependencies
+List all new packages or libraries installed and explain why they were needed.
+
+## 10. Configuration
+List the environment variables and configuration values required. Never reveal actual secrets.
+
+## 11. Testing Results
+Clearly list which features were successfully tested, which failed and which could not be tested.
+
+## 12. How to Run the Project
+Provide the exact terminal commands required to:
+
+- Install dependencies.
+- Configure the environment.
+- Set up or migrate the database.
+- Start the backend.
+- Start the AI service, if separate.
+- Start the frontend.
+- Run the tests.
+
+Use the actual commands supported by the existing project. Do not guess package scripts or file paths.
+
+## 13. Remaining Limitations
+Mention anything incomplete, unavailable or requiring additional configuration.
+
+**Critical reporting rule:** Do not merely describe what you intended to change. Report only what you actually implemented. Do not claim that a feature works unless it has been implemented and tested. Never omit files from the change report.
+
+---
+
+# FINAL OBJECTIVE
+
+Transform the existing AgriGuard AI application into a complete, connected and secure agricultural intelligence platform.
+
+The final experience must have:
+
+- A clean homepage.
+- Five simple primary navigation sections.
+- One continuous scrolling main website.
+- A dedicated Scan Plant section.
+- Multiple-image and individual-view uploads.
+- Camera capture.
+- AI-based plant disease detection.
+- Plant disease severity estimation.
+- Disease Progression Intelligence.
+- Treatment tracking and recovery projections.
+- Environmental disease risk prediction.
+- A genuine geographical disease outbreak map.
+- Expert verification and correction.
+- A complete user login and registration system.
+- A separate secure Expert Portal login.
+- Backend-enforced user data isolation.
+- Persistent database and image storage.
+- A complete file-by-file change report.
+
+**Most importantly: Build working functionality, not just UI. Preserve the existing project, integrate everything properly, test it, and provide a truthful report of exactly what changed.**

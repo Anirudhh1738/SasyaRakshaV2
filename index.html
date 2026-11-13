@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SasyaRaksha — Smart Plant Health &amp; Disease Screening Platform</title>
+    <meta
+      name="description"
+      content="SasyaRaksha smart agriculture plant disease detection, multi-photo plant &amp; soil inspection, severity analysis, weather risk alerts, and multilingual farmer guidance."
+    />
+    <meta property="og:title" content="SasyaRaksha — Smart Plant Health &amp; Disease Screening Platform" />
+    <meta
+      property="og:description"
+      content="Protect crops earlier with multi-image plant leaf screening, optional soil observation, live Open-Meteo weather risk, and English, हिंदी, and ಕನ್ನಡ support."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('sasyaraksha_theme');
+          if (t !== 'light' && t !== 'dark' && t !== 'agriglow') t = 'light';
+          document.documentElement.setAttribute('data-theme', t);
+          if (t === 'dark' || t === 'agriglow') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased selection:bg-sr-accent-soft selection:text-sr-accent-ink">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
